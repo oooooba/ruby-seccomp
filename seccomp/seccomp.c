@@ -118,7 +118,7 @@ void Init_seccomp(void){
     VALUE cSeccomp=rb_define_class("Seccomp", rb_cObject);
 
     syscall_hash=rb_eval_string(
-        "s=File.read('/usr/include/asm/unistd_64.h')\n"
+        "s=File.read('/usr/include/x86_64-linux-gnu/asm/unistd_64.h')\n"
         "arr=s.scan(/^#define __NR_(\\w+)\\s(\\d+)$/).map{ |k,v| [k.to_sym,v.to_i] }\n"
         "Hash[*arr.flatten]\n"
     );
